@@ -58,9 +58,7 @@ jobs:
         echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
         docker push $REGISTRY/$IMAGE_NAME:$TAG
 
-    - name: Build react code
-      run: npm run build
-      working-directory: ./client
+    
 
   package:
     needs: [build-backend, build-frontend]
@@ -72,6 +70,9 @@ jobs:
       with:
         name: backend
         path: server
+    - name: Build react code
+      run: npm run build
+      working-directory: ./client
 
     - name: Archive frontend
       uses: actions/upload-artifact@v2
