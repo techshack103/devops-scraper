@@ -3,7 +3,6 @@ import "./App.css";
 import Card from "./components/card/Card";
 
 function App() {
-  const testCardCount = 30;
   const [darkMode, setDarkMode] = useState(false);
   const [data, setData] = useState([]);
 
