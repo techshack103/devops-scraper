@@ -1,4 +1,4 @@
-FROM --platform=arm64 python
+FROM python
 WORKDIR /app
 COPY . .
 RUN pip install -r requirements.txt
