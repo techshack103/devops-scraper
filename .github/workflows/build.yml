@@ -71,7 +71,9 @@ jobs:
         name: backend
         path: server
     - name: Build react code
-      run: npm run build
+      run: |
+        npm install
+        npm run build
       working-directory: ./client
 
     - name: Archive frontend
