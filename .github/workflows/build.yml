@@ -63,7 +63,7 @@ jobs:
       working-directory: ./client
 
   package:
-    needs: [backend, frontend]
+    needs: [build-backend, build-frontend]
     runs-on: ubuntu-latest
 
     steps:
