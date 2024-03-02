@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: fastapi-container
-          image: your-registry/your-fastapi-image:latest
+          image: techshack176/devops-scrapper-backend:cc336dd6c398b5fc73adeeafaa68e287871b0eb5
           ports:
             - containerPort: 8000  # Use a different port for FastAPI
 ---
