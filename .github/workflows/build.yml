@@ -74,7 +74,7 @@ jobs:
       run: |
         npm install
         npm run build
-      working-directory: ./client
+      working-directory: client
 
     - name: Archive frontend
       uses: actions/upload-artifact@v2
