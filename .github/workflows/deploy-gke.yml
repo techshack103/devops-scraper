@@ -48,7 +48,7 @@ jobs:
     - name: Apply Kubernetes manifests
       run: |
         kubectl apply -f k8s/backend.yml
-        kubectl apply -f k8s/.yml
+        kubectl apply -f k8s/frontend.yml
 
     - name: Wait for rollout to finish
       run: |
