@@ -41,8 +41,8 @@ jobs:
 
     - name: Replace Docker image placeholders
       run: |
-        sed -i 's|gcr.io/${{ secrets.GCP_PROJECT_ID }}/devops-scrapper-backend:${{ github.sha }}|gcr.io/${{ secrets.GCP_PROJECT_ID }}/devops-scrapper-backend:'"${GITHUB_SHA}"'|' k8s/backend.yaml
-        sed -i 's|gcr.io/${{ secrets.GCP_PROJECT_ID }}/devops-scrapper-frontend:${{ github.sha }}|gcr.io/${{ secrets.GCP_PROJECT_ID }}/devops-scrapper-frontend:'"${GITHUB_SHA}"'|' k8s/frontend.yaml
+        sed -i 's|gcr.io/${{ secrets.GCP_PROJECT_ID }}/devops-scrapper-backend:${{ github.sha }}|gcr.io/${{ secrets.GCP_PROJECT_ID }}/devops-scrapper-backend:'"${GITHUB_SHA}"'|' k8s/backend.yml
+        sed -i 's|gcr.io/${{ secrets.GCP_PROJECT_ID }}/devops-scrapper-frontend:${{ github.sha }}|gcr.io/${{ secrets.GCP_PROJECT_ID }}/devops-scrapper-frontend:'"${GITHUB_SHA}"'|' k8s/frontend.yml
       env:
         GITHUB_SHA: ${{ github.sha }}
     - name: Apply Kubernetes manifests
