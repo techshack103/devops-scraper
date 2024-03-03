@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./components/card/Card";
+import { apiUrl } from "./config";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [data, setData] = useState([]);
@@ -8,7 +9,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}`); // Replace with the correct address of your FastAPI server
+        const response = await fetch(apiUrl); // Replace with the correct address of your FastAPI server
         const result = await response.json();
         console.log(process.env.REACT_APP_API_URL)
         console.log(result)
