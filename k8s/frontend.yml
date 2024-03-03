@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: frontend-container
-          image: techshack176/devops-scrapper-frontend-k8s:latest
+          image: gcr.io/${{ secrets.GCP_PROJECT_ID }}/devops-scrapper-frontend:${{ github.sha }}
           ports:
             - containerPort: 80
           env:
@@ -29,7 +29,7 @@ kind: ConfigMap
 metadata:
   name: backend-config
 data:
-  BACKEND_API_URL: "http://devops-scrapper-backend:8000"
+  BACKEND_API_URL: "http://devops-scrapper-backend:8000/scrape/devops"
 
 ---
 apiVersion: v1
