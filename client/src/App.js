@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./components/card/Card";
-
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [data, setData] = useState([]);
