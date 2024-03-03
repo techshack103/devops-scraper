@@ -1,31 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fastapi-deployment
+  name: devops-scrapper-backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: fastapi
+      app: devops-scrapper-backend
   template:
     metadata:
       labels:
-        app: fastapi
+        app: devops-scrapper-backend
     spec:
       containers:
-        - name: fastapi-container
+        - name: backend-container
           image: techshack176/devops-scrapper-backend-k8s:latest
           ports:
-            - containerPort: 8000
+            - containerPort: 80
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: fastapi-service
+  name: devops-scrapper-backend
 spec:
   selector:
-    app: fastapi
+    app: devops-scrapper-backend
   ports:
     - protocol: TCP
       port: 8000
-      targetPort: 8000
+      targetPort: 80

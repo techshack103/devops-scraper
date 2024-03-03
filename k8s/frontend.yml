@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: react-deployment
+  name: devops-scrapper-frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: react
+      app: devops-scrapper-frontend
   template:
     metadata:
       labels:
-        app: react
+        app: devops-scrapper-frontend
     spec:
       containers:
-        - name: react-container
+        - name: frontend-container
           image: techshack176/devops-scrapper-frontend-k8s:latest
           ports:
             - containerPort: 80
@@ -22,15 +22,24 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: backend-config
-                  key: backend-url
+                  key: BACKEND_API_URL
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+data:
+  BACKEND_API_URL: "http://devops-scrapper-backend:8000"
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: react-service
+  name: devops-scrapper-frontend
 spec:
+  type: LoadBalancer
   selector:
-    app: react
+    app: devops-scrapper-frontend
   ports:
     - protocol: TCP
       port: 80
