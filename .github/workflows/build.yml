@@ -2,7 +2,7 @@ name: Build Scrapper DockerHub
 on:
   push:
     branches:
-      - main
+      - k8s-deploy
 
 jobs:
   build-backend:
@@ -24,7 +24,7 @@ jobs:
     - name: Build and push Docker image
       env:
         REGISTRY: ${{ secrets.DOCKER_REGISTRY_DOCKER_HUB  }}
-        IMAGE_NAME: devops-scrapper-backend
+        IMAGE_NAME: devops-scrapper-backend-k8s
         TAG: ${{ github.sha }}
       run: |
         docker build -t $REGISTRY/$IMAGE_NAME:$TAG -f server/Dockerfile server/
@@ -51,7 +51,7 @@ jobs:
     - name: Build and push Docker image
       env:
         REGISTRY: ${{ secrets.DOCKER_REGISTRY_DOCKER_HUB }}
-        IMAGE_NAME: devops-scrapper-frontend
+        IMAGE_NAME: devops-scrapper-frontend-k8s
         TAG: ${{ github.sha }}
       run: |
         docker build -t $REGISTRY/$IMAGE_NAME:$TAG -f client/Dockerfile client/

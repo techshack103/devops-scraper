@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
         - name: fastapi-container
-          image: techshack176/devops-scrapper-backend:cc336dd6c398b5fc73adeeafaa68e287871b0eb5
+          image: techshack176/devops-scrapper-backend-k8s:latest
           ports:
-            - containerPort: 8000  # Use a different port for FastAPI
+            - containerPort: 8000
 ---
 apiVersion: v1
 kind: Service
@@ -27,5 +27,5 @@ spec:
     app: fastapi
   ports:
     - protocol: TCP
-      port: 8000  # Expose on a different port
+      port: 8000
       targetPort: 8000
