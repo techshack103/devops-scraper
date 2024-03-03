@@ -24,6 +24,7 @@ jobs:
       uses: google-github-actions/setup-gcloud@v0.4.0
       with:
         docker: true
+    - run: gcloud auth configure-docker
 
     - name: Build and push Docker images
       run: |
