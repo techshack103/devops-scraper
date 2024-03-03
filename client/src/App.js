@@ -10,6 +10,7 @@ function App() {
       try {
         const response = await fetch(`${process.env.REACT_APP_API_URL}`); // Replace with the correct address of your FastAPI server
         const result = await response.json();
+        console.log(process.env.REACT_APP_API_URL)
         console.log(result)
         setData(result);
       } catch (error) {
@@ -20,6 +21,7 @@ function App() {
     fetchData();
   }, []);
   console.log(`Data: ${data}`)
+  console.log(process.env.REACT_APP_API_URL)
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);

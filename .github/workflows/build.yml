@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - k8s-deploy
+      - gke-deploy
 
 jobs:
   build-backend:
