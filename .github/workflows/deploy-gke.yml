@@ -55,6 +55,6 @@ jobs:
     #     kubectl rollout status deployment/devops-scrapper-backend
     #     kubectl rollout status deployment/devops-scrapper-frontend
 
-    - name: Cleanup
-      run: |
-        rm kubeconfig.yaml
+    # - name: Cleanup
+    #   run: |
+    #     rm kubeconfig.yaml
