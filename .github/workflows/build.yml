@@ -25,9 +25,8 @@ jobs:
       env:
         REGISTRY: ${{ secrets.DOCKER_REGISTRY_DOCKER_HUB  }}
         IMAGE_NAME: devops-scrapper-backend-k8s
-        TAG: ${{ github.sha }}
       run: |
-        docker build -t $REGISTRY/$IMAGE_NAME:$TAG -f server/Dockerfile server/
+        docker build -t $REGISTRY/$IMAGE_NAME -f server/Dockerfile server/
         echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
         docker push $REGISTRY/$IMAGE_NAME:$TAG
   
@@ -52,9 +51,8 @@ jobs:
       env:
         REGISTRY: ${{ secrets.DOCKER_REGISTRY_DOCKER_HUB }}
         IMAGE_NAME: devops-scrapper-frontend-k8s
-        TAG: ${{ github.sha }}
       run: |
-        docker build -t $REGISTRY/$IMAGE_NAME:$TAG -f client/Dockerfile client/
+        docker build -t $REGISTRY/$IMAGE_NAME -f client/Dockerfile client/
         echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
         docker push $REGISTRY/$IMAGE_NAME:$TAG
 
