@@ -14,9 +14,15 @@ spec:
     spec:
       containers:
         - name: react-container
-          image: techshack176/devops-scrapper-frontend:ba8d94293ef6d5076f40dae59275987f12e5becd
+          image: hmx098/devops-scrapper-frontend-k8s:latest
           ports:
             - containerPort: 80
+          env:
+            - name: REACT_APP_API_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: backend-url
 ---
 apiVersion: v1
 kind: Service
@@ -27,5 +33,5 @@ spec:
     app: react
   ports:
     - protocol: TCP
-      port: 80  # Expose on port 80
+      port: 80
       targetPort: 80
