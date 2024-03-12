@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: react-container
-          image: techshack176/devops-scrapper-frontend-k8s:latest
+          image: hmx098/devops-scrapper-frontend-k8s:latest
           ports:
             - containerPort: 80
           env:

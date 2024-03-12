@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: backend-config
 data:
-  backend-url: "http://fastapi-service:8000"
+  backend-url: "http://fastapi-service"
